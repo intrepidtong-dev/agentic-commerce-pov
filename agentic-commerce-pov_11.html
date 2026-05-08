@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Last Satisfying Click Is No Click at All — Accenture Song SEA</title>
+
+<style>
+  :root {
+    --ink: #0D0016;
+    --ink-2: #1A0B2E;
+    --paper: #FBFAF7;
+    --paper-2: #F4F1EC;
+    --rule: #E5E0DA;
+    --rule-strong: #1A1A1A;
+    --muted: #6B6B6B;
+    --muted-2: #8A8A8A;
+    --purple: #A100FF;
+    --purple-deep: #7B00C7;
+    --purple-soft: #E8D5FF;
+    --purple-tint: #F5ECFF;
+    --accent: #A100FF;
+    --warn: #B8860B;
+    --serif: "Graphik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --sans: "Graphik", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --mono: "SF Mono", Menlo, Monaco, "Courier New", monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #eae6df;
+    font-family: var(--sans);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .doc {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: var(--paper);
+    min-height: 100vh;
+    box-shadow: 0 0 60px rgba(0,0,0,0.12);
+  }
+
+  /* ============ COVER ============ */
+  .cover {
+    background: var(--ink);
+    color: #fff;
+    padding: 60px 56px 48px;
+    position: relative;
+    height: 100vh;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    right: -200px; top: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(161,0,255,0.5) 0%, rgba(161,0,255,0) 70%);
+    pointer-events: none;
+  }
+  .cover-brand {
+    font-size: 13px;
+    color: var(--purple-soft);
+    font-style: italic;
+    letter-spacing: 0.5px;
+    margin-bottom: 72px;
+    position: relative;
+  }
+  .cover-eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--purple);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .cover-title {
+    font-family: var(--sans);
+    font-size: 64px;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    font-weight: 700;
+    color: #fff;
+    max-width: 700px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .cover-title em {
+    font-style: normal;
+    color: var(--purple);
+    font-weight: 700;
+  }
+  .cover-sub {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 20px;
+    color: #b8a8c8;
+    margin-top: 28px;
+    max-width: 620px;
+    line-height: 1.4;
+    font-weight: 400;
+    position: relative;
+  }
+  .cover-meta {
+    margin-top: auto;
+    padding-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #888;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .cover-meta .accent-lines {
+    display: flex; gap: 6px;
+  }
+  .cover-meta .accent-lines span {
+    height: 3px;
+    background: var(--purple);
+    border-radius: 2px;
+    display: block;
+  }
+  .cover-meta .accent-lines span:nth-child(1) { width: 60px; }
+  .cover-meta .accent-lines span:nth-child(2) { width: 28px; }
+  .cover-meta .accent-lines span:nth-child(3) { width: 14px; background: var(--purple-soft); }
+
+  /* ============ SECTION LAYOUT ============ */
+  .section {
+    padding: 56px 56px 44px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+  .section-num::before {
+    content: "";
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--purple);
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  h1.section-title {
+    font-family: var(--sans);
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+    max-width: 720px;
+  }
+  h1.section-title em {
+    font-style: normal;
+    color: var(--purple);
+  }
+
+  .section-kicker {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.5;
+    max-width: 640px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-family: var(--sans);
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 44px 0 16px;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--purple);
+    margin: 32px 0 12px;
+  }
+
+  p, li {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.65;
+    color: #2a2a2a;
+    margin-bottom: 16px;
+  }
+
+  p strong, li strong { color: var(--ink); font-weight: 600; }
+
+  .lede {
+    font-family: var(--sans);
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 32px;
+    max-width: 720px;
+    letter-spacing: -0.1px;
+  }
+  .lede::first-letter {
+    font-size: 60px;
+    font-weight: 700;
+    float: left;
+    line-height: 0.85;
+    margin: 4px 8px 0 -2px;
+    color: var(--purple);
+    font-family: var(--sans);
+  }
+
+  ul { padding-left: 0; list-style: none; }
+  ul li {
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  ul li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 10px;
+    width: 12px; height: 1px;
+    background: var(--purple);
+  }
+
+  /* ============ PULL QUOTE ============ */
+  .pullquote {
+    border-left: 3px solid var(--purple);
+    padding: 4px 0 4px 28px;
+    margin: 40px 0;
+    font-family: var(--sans);
+    font-size: 26px;
+    line-height: 1.3;
+    color: var(--ink);
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    max-width: 680px;
+  }
+  .pullquote-attrib {
+    font-family: var(--sans);
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 16px;
+    font-weight: 500;
+  }
+
+  /* ============ CALLOUTS ============ */
+  .callout {
+    background: var(--paper-2);
+    border-left: 3px solid var(--ink);
+    padding: 20px 24px;
+    margin: 28px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .callout.purple { border-left-color: var(--purple); background: var(--purple-tint); }
+  .callout.dark {
+    background: var(--ink);
+    color: #e4d9f0;
+    border: none;
+    padding: 28px 32px;
+  }
+  .callout.dark strong { color: #fff; }
+  .callout-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  /* ============ STAT GRID ============ */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule-strong);
+    border-left: 1px solid var(--rule-strong);
+    margin: 36px 0 16px;
+  }
+  .stat-cell {
+    padding: 24px 20px;
+    border-right: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    background: var(--paper);
+  }
+  .stat-value {
+    font-family: var(--sans);
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--purple);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .stat-sub {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ============ SPECTRUM DIAGRAM ============ */
+  .spectrum {
+    background: var(--ink);
+    color: #fff;
+    padding: 40px 36px;
+    margin: 36px 0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .spectrum-title {
+    font-family: var(--sans);
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .spectrum-sub {
+    font-size: 13px;
+    color: #b8a8c8;
+    margin-bottom: 32px;
+    font-style: normal;
+    font-family: var(--sans);
+  }
+  .spectrum-grid {
+    position: relative;
+    height: 260px;
+    border-left: 1px solid #3a2a4a;
+    border-bottom: 1px solid #3a2a4a;
+    margin-bottom: 28px;
+  }
+  .spectrum-yaxis, .spectrum-xaxis {
+    position: absolute;
+    font-size: 10px;
+    color: #b8a8c8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .spectrum-yaxis {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    left: -8px; top: 130px;
+    white-space: nowrap;
+  }
+  .spectrum-xaxis {
+    bottom: -24px; left: 60px;
+    white-space: nowrap;
+  }
+  .spectrum-axis-end {
+    position: absolute;
+    font-size: 9px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .axis-y-low { left: -32px; bottom: -4px; }
+  .axis-y-high { left: -32px; top: -4px; }
+  .axis-x-low { left: 4px; bottom: -24px; }
+  .axis-x-high { right: 4px; bottom: -24px; }
+  .spectrum-zone {
+    position: absolute;
+    padding: 10px 12px;
+    border-radius: 3px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .spectrum-zone .zone-name {
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 2px;
+    letter-spacing: 0.2px;
+  }
+  .zone-core { background: var(--purple); color: #fff; top: 10px; right: 20px; width: 200px; }
+  .zone-adjacent { background: var(--purple-deep); color: #fff; top: 100px; right: 160px; width: 190px; }
+  .zone-enabled { background: #3a2a4a; color: #d9c8ea; top: 180px; left: 30px; width: 200px; }
+
+  /* ============ TWO-COLUMN ============ */
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin: 28px 0;
+  }
+  .twocol.narrow { gap: 24px; }
+
+  /* ============ DEFINITION CARDS ============ */
+  .def-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 24px 26px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .def-card.core {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .def-card.adjacent {
+    background: var(--purple-tint);
+    border-color: var(--purple-soft);
+  }
+  .def-card-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .def-card.core .def-card-eyebrow { color: var(--purple); }
+  .def-card.adjacent .def-card-eyebrow { color: var(--purple-deep); }
+  .def-card.enabled .def-card-eyebrow { color: var(--muted); }
+  .def-card-name {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+  .def-card.core .def-card-name { color: #fff; }
+  .def-card-example {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-top: 10px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .def-card:not(.core) .def-card-example { border-top-color: var(--rule); color: var(--muted); }
+  .def-card.core .def-card-example { color: #c9b8d9; }
+
+  /* ============ VENN / INTERSECTION ============ */
+  .intersection {
+    background: var(--paper-2);
+    padding: 36px 32px;
+    margin: 32px 0;
+    border-radius: 4px;
+  }
+  .intersection-title {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .intersection-sub {
+    font-size: 13px;
+    font-style: normal;
+    font-family: var(--sans);
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .intersection-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .inter-node {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 18px 18px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+  }
+  .inter-node.song {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .inter-node h4 {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--purple);
+    margin-bottom: 10px;
+  }
+  .inter-node p {
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--ink);
+  }
+  .inter-node.song p { color: #d9c8ea; }
+  .inter-plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--sans);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--purple);
+  }
+
+  /* ============ FOOTNOTES ============ */
+  sup.fn {
+    color: var(--purple);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.7em;
+    vertical-align: super;
+    padding: 0 1px;
+  }
+  .footnotes {
+    background: var(--paper-2);
+    padding: 48px 56px;
+    border-top: 3px solid var(--ink);
+  }
+  .footnotes h2 {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 24px;
+  }
+  .footnotes ol {
+    list-style: none;
+    counter-reset: fn;
+    padding: 0;
+  }
+  .footnotes ol li {
+    counter-increment: fn;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--muted);
+    padding: 10px 0 10px 32px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .footnotes ol li::before {
+    content: counter(fn);
+    position: absolute;
+    left: 0; top: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--purple);
+    font-weight: 600;
+  }
+  .footnotes ol li:last-child { border-bottom: none; }
+  .footnotes a { color: var(--purple-deep); text-decoration: none; border-bottom: 1px solid var(--purple-soft); word-break: break-all; }
+  .footnotes a:hover { border-bottom-color: var(--purple); }
+
+  .source-needed {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--warn);
+    background: rgba(184, 134, 11, 0.1);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* ============ OFFERING TABLE ============ */
+  table.offering {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 13px;
+  }
+  table.offering th {
+    background: var(--ink);
+    color: #fff;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  table.offering td {
+    padding: 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  table.offering tr:nth-child(even) td { background: var(--paper-2); }
+  table.offering td:first-child { font-weight: 600; color: var(--ink); }
+
+  /* ============ SIDEBAR ============ */
+  .sidebar {
+    background: var(--paper-2);
+    border-left: 3px solid var(--purple);
+    padding: 24px 28px;
+    margin: 32px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .sidebar-title {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.1px;
+  }
+  .sidebar-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  /* ============ SLIDE NUM MARKERS ============ */
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 56px;
+    border-top: 1px solid var(--rule);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--muted-2);
+    text-transform: uppercase;
+    background: var(--paper);
+  }
+
+  /* ============ PRINT ============ */
+  @media print {
+    @page { 
+      margin: 0;
+      size: A4 portrait;
+    }
+    html, body { background: #fff; margin: 0; padding: 0; }
+    .doc { 
+      box-shadow: none; 
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+    }
+    .section { 
+      page-break-inside: auto;
+      padding: 32px 56px 24px;
+    }
+    .cover { 
+      page-break-after: always;
+      height: 297mm;
+      min-height: auto;
+      padding: 50px 56px 40px;
+      margin: 0;
+      background: var(--ink) !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .cover::before {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .footnotes { 
+      page-break-before: always;
+      padding: 32px 56px;
+      background: var(--paper-2) !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .no-print { display: none !important; }
+    h1, h2, h3 { 
+      page-break-after: avoid;
+      orphans: 3;
+      widows: 3;
+    }
+    p, li {
+      orphans: 3;
+      widows: 3;
+    }
+    .lede {
+      page-break-inside: avoid;
+    }
+    .pullquote {
+      page-break-inside: avoid;
+      page-break-before: auto;
+      page-break-after: auto;
+    }
+    .stat-grid, .def-card, .callout, .sidebar, .intersection, .spectrum, .twocol { 
+      page-break-inside: avoid;
+    }
+    .page-footer {
+      padding: 12px 56px;
+    }
+    .stat-grid, .spectrum, .callout.dark, .def-card.core, .inter-node.song {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+
+  /* ============ PRINT BUTTON ============ */
+  .print-btn {
+    position: fixed;
+    top: 20px; right: 20px;
+    background: var(--ink);
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .print-btn:hover { background: var(--purple); }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Save as PDF</button>
+
+<div class="doc">
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div class="cover-brand">Accenture Song</div>
+  <div class="cover-eyebrow">Point of View · Southeast Asia · April 2026</div>
+  <h1 class="cover-title">The last satisfying click is <em>no click at all.</em></h1>
+  <p class="cover-sub">How agentic commerce will reshape Southeast Asia&rsquo;s digital economy &mdash; and why the definition of &ldquo;agentic&rdquo; must stretch to capture the real opportunity.</p>
+  <div class="cover-meta">
+    <div>Confidential &middot; Internal Distribution</div>
+    <div class="accent-lines"><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<!-- ============ 01. THESIS ============ -->
+<section class="section">
+  <span class="section-num">01 &middot; Thesis</span>
+  <h1 class="section-title">The region that invented conversational commerce is the region that will retire the click.</h1>
+  <p class="section-kicker">Southeast Asia is not a late adopter of agentic commerce. It is the most fertile ground for it, for reasons structural to how the region already shops.</p>
+
+  <p class="lede">Southeast Asia&rsquo;s digital economy is on track to surpass <strong>USD 300 billion in GMV in 2025</strong>, with platform e-commerce alone reaching <strong>USD 157.6 billion</strong> &mdash; a 23% year-on-year jump &mdash; and now concentrated in three players that command 99% of platform market share: Shopee, Lazada, and TikTok Shop.<sup class="fn">1,2</sup> This is the most concentrated major e-commerce market in the world, the most fragmented checkout experience for consumers, and the most promo-intensive shopping culture anywhere.</p>
+
+  <p>Against this backdrop, a specific prediction from Gartner reframes the next five years: by 2028, <strong>60% of brands will use agentic AI to facilitate streamlined one-to-one interactions</strong>, ending channel-based marketing as we know it.<sup class="fn">3</sup> Separately, Gartner&rsquo;s 2026 outlook forecasts that <strong>40% of enterprise applications will be integrated with task-specific AI agents by the end of 2026, up from less than 5% a year earlier</strong>.<sup class="fn">4</sup> Agentic commerce is not on a distant horizon. It is the commerce architecture being built right now &mdash; and SEA will be where the most interesting experiments happen first.</p>
+
+  <div class="pullquote">
+    The brands that win in SEA will not be the ones with the best app. They will be the ones whose AI agents eliminate the need for an app at all.
+    <div class="pullquote-attrib">Central Thesis</div>
+  </div>
+
+  <p>But here is the complication most POVs gloss over: if we define agentic commerce narrowly &mdash; as fully autonomous agents executing end-to-end transactions without human intervention &mdash; the market in SEA is too small, too early, and too experimental to support a dedicated practice. If we define it expansively &mdash; to include the full spectrum of agentic AI applied to commerce outcomes, including content production at scale, creative decisioning, and agent-assisted customer engagement &mdash; we unlock a market that is already commercially viable and where Accenture Song has structural advantages no competitor can match.</p>
+
+  <p>This POV argues for the second definition, and builds the case for why Song&rsquo;s unique position across marketing, social commerce, and commerce execution makes us the only firm in SEA positioned to win it.</p>
+</section>
+
+<div style="page-break-after: always;"></div>
+
+<!-- ============ 02. DEFINITION ============ -->
+<section class="section">
+  <span class="section-num">02 &middot; Definition</span>
+  <h1 class="section-title">Agentic commerce is a <em>spectrum</em>, not a threshold.</h1>
+  <p class="section-kicker">The market gets stuck arguing about whether something is &ldquo;truly agentic.&rdquo; The more useful question is where a capability sits on two axes &mdash; autonomy and commerce impact &mdash; and how rapidly it is moving along them.</p>
+
+  <h2>The two-axis definition</h2>
+
+  <p>Rather than drawing a line between &ldquo;agentic&rdquo; and &ldquo;not agentic,&rdquo; we plot capabilities on a spectrum defined by two dimensions that together determine commercial value.</p>
+
+  <div class="twocol narrow">
+    <div>
+      <h3>Axis 1 — Autonomy</h3>
+      <p>The degree to which the AI system acts without human confirmation. At the low end: suggestion engines and copilots that require a human to click. At the high end: fully autonomous agents that execute multi-step transactions, negotiate, and escalate only at defined exception thresholds.</p>
+    </div>
+    <div>
+      <h3>Axis 2 — Commerce Impact</h3>
+      <p>The proximity of the AI capability to a commercial outcome. At the low end: internal productivity tools and operational efficiency. At the high end: direct influence on transaction, AOV, conversion, or cost-to-serve &mdash; with measurable P&amp;L consequences.</p>
+    </div>
+  </div>
+
+  <div style="background: var(--ink); color: #fff; padding: 36px; margin: 36px 0; border-radius: 4px;">
+    <div style="font-family: var(--sans); font-size: 20px; color: #fff; margin-bottom: 8px; font-weight: 600;">The Agentic Commerce Spectrum</div>
+    <div style="font-size: 13px; color: #b8a8c8; margin-bottom: 28px;">Where SEA&rsquo;s revenue opportunities actually live today &mdash; and where they&rsquo;re moving.</div>
+    
+    <div style="display: grid; grid-template-columns: auto 140px 140px 1fr; gap: 12px; align-items: stretch;">
+      <!-- Header row -->
+      <div></div>
+      <div style="text-align: center; font-size: 10px; color: #b8a8c8; text-transform: uppercase; letter-spacing: 1.5px; padding-bottom: 8px;">Autonomy</div>
+      <div style="text-align: center; font-size: 10px; color: #b8a8c8; text-transform: uppercase; letter-spacing: 1.5px; padding-bottom: 8px;">Commerce Impact</div>
+      <div></div>
+      
+      <!-- Core Agentic -->
+      <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; text-align: right; padding-right: 8px;">Highest Value</div>
+      <div style="background: rgba(255,255,255,0.15); padding: 10px; border-radius: 3px; text-align: center; font-size: 11px; font-weight: 600; color: #fff;">High</div>
+      <div style="background: rgba(255,255,255,0.15); padding: 10px; border-radius: 3px; text-align: center; font-size: 11px; font-weight: 600; color: #fff;">High</div>
+      <div style="background: var(--purple); padding: 16px 18px; border-radius: 4px;">
+        <div style="font-weight: 700; font-size: 13px; margin-bottom: 4px; color: #fff;">Core Agentic</div>
+        <div style="font-size: 11px; line-height: 1.4; color: #fff; opacity: 0.95;">Autonomous agents executing transactions: replenishment, payment orchestration, dynamic pricing, RFQ automation.</div>
+      </div>
+      
+      <!-- Adjacent Agentic -->
+      <div></div>
+      <div style="background: rgba(255,255,255,0.12); padding: 10px; border-radius: 3px; text-align: center; font-size: 11px; font-weight: 600; color: #d9c8ea;">Medium-High</div>
+      <div style="background: rgba(255,255,255,0.15); padding: 10px; border-radius: 3px; text-align: center; font-size: 11px; font-weight: 600; color: #fff;">High</div>
+      <div style="background: var(--purple-deep); padding: 16px 18px; border-radius: 4px;">
+        <div style="font-weight: 700; font-size: 13px; margin-bottom: 4px; color: #fff;">Adjacent Agentic</div>
+        <div style="font-size: 11px; line-height: 1.4; color: #fff; opacity: 0.95;">Agent-assisted decisioning at commerce scale: personalisation engines, promotion optimisation, live-commerce co-pilots.</div>
+      </div>
+      
+      <!-- Agentic-Enabled -->
+      <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 9px; color: #888; text-transform: uppercase; letter-spacing: 1.5px; text-align: right; padding-right: 8px;">Large Revenue Base</div>
+      <div style="background: rgba(255,255,255,0.08); padding: 10px; border-radius: 3px; text-align: center; font-size: 11px; font-weight: 600; color: #d9c8ea;">Medium</div>
+      <div style="background: rgba(255,255,255,0.12); padding: 10px; border-radius: 3px; text-align: center; font-size: 11px; font-weight: 600; color: #d9c8ea;">Medium-High</div>
+      <div style="background: #3a2a4a; padding: 16px 18px; border-radius: 4px;">
+        <div style="font-weight: 700; font-size: 13px; margin-bottom: 4px; color: #fff;">Agentic-Enabled</div>
+        <div style="font-size: 11px; line-height: 1.4; color: #d9c8ea;">AI-driven content production and creative ops at scale feeding commerce: generative merchandising, asset automation, social commerce creative.</div>
+      </div>
+    </div>
+  </div>
+
+  <p>All three zones count toward our agentic commerce practice, and the revenue mix will shift over three years. Today, Agentic-Enabled is where the largest dollar volume already exists in SEA, because content operations for commerce is a mature, budgeted line item. Adjacent Agentic is where capability investment is accelerating. Core Agentic is where the headline wins will come from &mdash; and where early beachhead engagements buy us the authority to lead the rest.</p>
+
+  <h2>Zone-by-zone: what qualifies, and why it matters</h2>
+
+  <div class="def-card core">
+    <div class="def-card-eyebrow">Zone 1 · Core Agentic</div>
+    <div class="def-card-name">Autonomous commercial execution</div>
+    <p style="color:#c9b8d9; font-size:14px; margin:0;">AI systems that execute multi-step commercial actions with real-world consequences &mdash; no human click at the final step. These are not assistants; they are operators. The system receives intent, decomposes it, negotiates or optimises, and transacts.</p>
+    <div class="def-card-example">
+      <strong style="color:#fff;">Examples that qualify:</strong> Autonomous replenishment agents for grocery (FairPrice-pattern). Dynamic pricing and promotion agents. Payment orchestration agents that select optimal rails. B2B procurement agents that run RFQs end-to-end. Agent-led booking and dynamic upsell in hospitality.
+    </div>
+  </div>
+
+  <div class="def-card adjacent">
+    <div class="def-card-eyebrow">Zone 2 · Adjacent Agentic</div>
+    <div class="def-card-name">Agent-assisted decisioning at commerce scale</div>
+    <p style="color:#3a2a4a; font-size:14px; margin:0;">AI systems that operate alongside humans but take meaningful autonomous action within a constrained commerce context. Human defines the envelope; agent operates inside it. The commercial impact is direct, but a human remains in the loop for strategic overrides.</p>
+    <div class="def-card-example" style="color:#6a4a8a;">
+      <strong style="color:#3a2a4a;">Examples that qualify:</strong> Personalisation engines that autonomously assemble offers. Live-commerce creative agents that generate, test, and optimise streams in real time. Shopper marketing optimisation that reallocates spend across channels without human approval at each step. Customer service agents that resolve service issues including refunds and credits.
+    </div>
+  </div>
+
+  <div class="def-card">
+    <div class="def-card-eyebrow">Zone 3 · Agentic-Enabled</div>
+    <div class="def-card-name">Generative content &amp; creative ops for commerce</div>
+    <p style="font-size:14px; margin:0;">AI-driven content production at commerce scale, where agents generate, adapt, localise, and deploy creative assets that directly feed commerce outcomes. Autonomy is high within the content production pipeline; commerce impact is indirect but measurable (conversion lift, AOV, engagement).</p>
+    <div class="def-card-example">
+      <strong style="color:var(--ink);">Examples that qualify:</strong> Generative product merchandising at SKU scale (millions of PDPs, variants, localisations). Autonomous creative asset production for paid media feeding commerce. Social commerce creative automation (short-form video, UGC-style content) at platform scale. AI-driven catalogue localisation across SEA markets.
+    </div>
+  </div>
+
+  <div class="callout purple">
+    <div class="callout-label">Why this definition matters commercially</div>
+    <strong>Accenture is already the largest global producer of AI-driven content for commerce at scale.</strong> Excluding content production from our agentic commerce definition would cede our single strongest proof point &mdash; and the revenue base that anchors a viable practice &mdash; to a narrow technical purity argument. The spectrum definition lets us speak credibly about Core Agentic to analysts and CDOs, while building the practice on a revenue base that already exists.
+  </div>
+</section>
+
+<!-- ============ 03. WHY SEA ============ -->
+<section class="section">
+  <span class="section-num">03 &middot; Why SEA, Why Now</span>
+  <h1 class="section-title">The structural conditions that make SEA the world&rsquo;s fastest-moving agentic commerce laboratory.</h1>
+
+  <p>Five conditions are specific to Southeast Asia and collectively make the region move faster on agentic commerce than any other major market.</p>
+
+  <h2>1. Extreme platform concentration meets consumer fragmentation</h2>
+  <p>Three platforms &mdash; Shopee (52% regional share), TikTok Shop (including Tokopedia, ~28%), and Lazada (~15%) &mdash; now control <strong>99% of Southeast Asia&rsquo;s platform e-commerce GMV</strong>.<sup class="fn">2,5</sup> Yet consumers toggle across all three plus WhatsApp, brand D2C, and live commerce in a single purchase journey. This fragmentation-at-the-consumer-level, concentration-at-the-platform-level dynamic is the exact condition agents are built to arbitrage.</p>
+
+  <h2>2. Conversational commerce is the default, not the exception</h2>
+  <p>Video and live commerce already generate <strong>USD 49.7 billion in GMV &mdash; 32% of SEA platform GMV</strong>.<sup class="fn">5</sup> WhatsApp-based selling is dominant in Indonesia, Thailand, and the Philippines. Consumers are already comfortable transacting through conversation &mdash; the leap from human seller to AI agent is a modality shift, not a behaviour change. SEA has done the cultural work that Western markets are still doing.</p>
+
+  <h2>3. AI adoption is already at consumer scale</h2>
+  <p>According to the 2025 e-Conomy SEA report, <strong>68% of SEA consumers are influenced by AI-generated recommendations</strong>.<sup class="fn">1</sup> This is not a future state. Consumers already trust AI outputs in commerce decisions &mdash; making the transition to agents acting on their behalf materially shorter than in markets where AI is still viewed with skepticism.</p>
+
+  <h2>4. Promo and deal-seeking behaviour is unmatched</h2>
+  <p>SEA&rsquo;s promotional intensity &mdash; 9.9, 11.11, 12.12, daily flash sales, voucher stacking, cross-platform price comparison &mdash; creates an optimisation problem no human shopper can solve efficiently. This is the ideal use case for Core Agentic systems: promo arbitrage, optimal timing, bundle construction, automated price discovery at speeds and accuracy no human can match.</p>
+
+  <h2>5. SME merchant operational pain is acute and fragmented</h2>
+  <p>Brands contribute less than 30% of SEA&rsquo;s platform e-commerce GMV, compared to over 50% in China.<sup class="fn">6</sup> The remainder is a long tail of SME sellers operating with minimal tooling: manual catalog updates, manual pricing, manual campaign participation. Agents acting as autonomous merchant operators represent a step-change for this segment and the single largest untapped market on the supply side.</p>
+
+  <div class="sidebar">
+    <div class="sidebar-label">Regional Context</div>
+    <div class="sidebar-title">SEA&rsquo;s digital decade delivered. The AI decade will be faster.</div>
+    <p style="margin:0; color:var(--muted);">GMV grew <strong>7.4x</strong> over the past decade (from USD 40bn to USD 300bn+). Revenue grew <strong>11.2x</strong> (forecast to hit USD 135bn in 2025).<sup class="fn">1</sup> The next wave of growth in SEA &mdash; per the report&rsquo;s framing &mdash; will be AI-led and monetisation-focused, not user-acquisition-led. Agents are the monetisation mechanism.</p>
+  </div>
+</section>
+
+<div style="page-break-after: always;"></div>
+
+<!-- ============ 04. COMMERCIAL PRIZE ============ -->
+<section class="section">
+  <span class="section-num">04 &middot; The Commercial Prize</span>
+  <h1 class="section-title">The value case, across all three spectrum zones.</h1>
+  <p class="section-kicker">Directional ranges from early global adopters, to be validated with SEA-specific pilots.</p>
+
+  <div class="stat-grid">
+    <div class="stat-cell">
+      <div class="stat-value">3–8%</div>
+      <div class="stat-label">Conversion uplift</div>
+      <div class="stat-sub">Intent compression across intent-capture and agent-led checkout</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">5–15%</div>
+      <div class="stat-label">AOV gain</div>
+      <div class="stat-sub">Autonomous bundling and dynamic upsell</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">10–30%</div>
+      <div class="stat-label">Cart abandonment reduction</div>
+      <div class="stat-sub">Friction removal at checkout and re-engagement</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">20–40%</div>
+      <div class="stat-label">Cost-to-serve reduction</div>
+      <div class="stat-sub">B2C customer ops and B2B procurement</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">2–5x</div>
+      <div class="stat-label">Campaign velocity increase</div>
+      <div class="stat-sub">Merchant-side agent-led operations</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-value">30–60%</div>
+      <div class="stat-label">Procurement cycle reduction</div>
+      <div class="stat-sub">B2B autonomous RFQ and supplier negotiation</div>
+    </div>
+  </div>
+
+  <p style="font-size:12px; color:var(--muted); margin-top:8px;"><span class="source-needed">RANGES DIRECTIONAL</span> These ranges are drawn from early-adopter implementations globally. SEA-specific validation will come from our first three Sprint engagements in 2026. They should be treated as credible directional indicators, not audited figures.</p>
+
+  <h2>The macro case</h2>
+  <p>McKinsey Global Institute estimates generative AI could deliver <strong>USD 2.6&ndash;4.4 trillion in annual global value</strong>, with <strong>approximately 75% concentrated in four functional areas: customer operations, marketing and sales, software engineering, and R&amp;D</strong>.<sup class="fn">7</sup> Marketing alone could see productivity gains of <strong>5&ndash;15% of total marketing spend &mdash; approximately USD 463 billion annually</strong>.<sup class="fn">8</sup> The commerce-adjacent zones (marketing, sales, customer ops) account for the majority of this value.</p>
+
+  <p>Separately, Gartner projects that <strong>AI agents will command USD 15 trillion in B2B purchases by 2028</strong>,<sup class="fn">9</sup> and that <strong>agentic AI could drive approximately 30% of enterprise application software revenue by 2035, surpassing USD 450 billion</strong>.<sup class="fn">4</sup> These are not marginal numbers.</p>
+
+  <h2>The new revenue architecture: agent-as-a-channel</h2>
+  <p>Beyond efficiency, agentic commerce opens a new monetisation layer for platforms and brands: sponsored placement within agent recommendation flows, commission on agent-executed transactions, and API access for third-party agents. Gartner already frames this as the emergence of <em>&ldquo;machine customers&rdquo; with economic agency</em>, driving demand for programmable financial infrastructure.<sup class="fn">10</sup></p>
+</section>
+
+<!-- ============ 05. SONG'S UNFAIR ADVANTAGE ============ -->
+<section class="section">
+  <span class="section-num">05 &middot; Song&rsquo;s Position</span>
+  <h1 class="section-title">The intersection that only Accenture Song can occupy.</h1>
+  <p class="section-kicker">Agentic commerce is not a single offering. It is the convergence of three capabilities we already operate at scale &mdash; and that no competitor in SEA holds together.</p>
+
+  <div class="intersection">
+    <div class="intersection-title">Three practices, one compounding advantage</div>
+    <div class="intersection-sub">Marketing + Social Commerce + Agentic Commerce &mdash; each strong on its own, exponentially stronger together.</div>
+    <div class="intersection-grid">
+      <div class="inter-node">
+        <h4>Marketing</h4>
+        <p>Demand generation, creative production, media, personalisation at scale. The layer that captures intent and shapes preference.</p>
+      </div>
+      <div class="inter-plus">+</div>
+      <div class="inter-node">
+        <h4>Social Commerce</h4>
+        <p>Creator engagement, live commerce enablement, community-led selling, short-form video production at platform scale.</p>
+      </div>
+      <div class="inter-plus">+</div>
+      <div class="inter-node">
+        <h4>Agentic Commerce</h4>
+        <p>Autonomous execution across intent, decisioning, and transaction layers. The operating system of the post-app commerce stack.</p>
+      </div>
+    </div>
+    <div style="margin-top:24px; padding-top:24px; border-top:1px solid var(--rule);">
+      <div class="sidebar-label" style="margin-bottom:10px;">The compounding effect</div>
+      <p style="margin:0; font-size:14px; line-height:1.65; color:var(--ink);"><strong>Marketing generates the intent signals</strong> that agentic systems consume. <strong>Social commerce is the primary surface</strong> on which SEA consumers already engage in conversational and video-first commerce &mdash; the exact modality agents will inhabit. <strong>Agentic commerce is the execution layer</strong> that turns marketing intent and social engagement into transactions, bundled offers, and retention loops. A competitor who owns only one of these three cannot replicate what we can deliver across all three.</p>
+    </div>
+  </div>
+
+  <h2>Why no one else spans the intersection</h2>
+
+  <p>Strategy firms (MBB) theorise about commerce transformation and agent operating models but have no production build-or-run capability. Platform implementers (Publicis Sapient, Deloitte Digital) own commerce platform rails but lack AI-native interaction design and creative production at scale. Creative and media agencies (WPP, Dentsu) design experiences for humans but have no control over transaction layers or enterprise systems. Hyperscalers (AWS, Google, Microsoft) provide infrastructure but cannot deliver the integrated advisory, design, and execution work an enterprise client needs.</p>
+
+  <p>Only Accenture Song operates at scale across: <strong>(a)</strong> strategy and design for intent and trust architectures, <strong>(b)</strong> AI decisioning through the Accenture AI and GenAI CoE, <strong>(c)</strong> production operations via SynOps for exception handling and governance, <strong>(d)</strong> enterprise execution rails through Salesforce Commerce Cloud, SAP, VTEX, and Adobe, <strong>(e)</strong> creative and content production at the volumes commerce requires, and <strong>(f)</strong> social and live commerce enablement as an already-funded practice area.</p>
+
+  <div class="callout dark">
+    <div class="callout-label" style="color:var(--purple);">The strategic claim</div>
+    <strong>We are not assembling these capabilities for agentic commerce. They are already assembled.</strong> What we are doing is recognising the intersection we already occupy and naming it as a coherent practice area. This is not a build. It is a reframe of capabilities already earning revenue.
+  </div>
+</section>
+
+<!-- ============ 06. GTM CONNECTION ============ -->
+<section class="section">
+  <span class="section-num">06 &middot; GTM Implications</span>
+  <h1 class="section-title">What this POV commits our go-to-market strategy to.</h1>
+  <p class="section-kicker">A POV this expansive demands a GTM that explicitly connects Marketing, Social Commerce, and Agentic Commerce &mdash; not three parallel practices, but one coordinated go-to-market motion.</p>
+
+  <h2>Three principles the GTM must honour</h2>
+
+  <div class="def-card">
+    <div class="def-card-eyebrow">Principle 1</div>
+    <div class="def-card-name">Offerings must span the full spectrum, not just Core Agentic.</div>
+    <p style="font-size:14px; margin:8px 0 0;">The offering portfolio needs a clear entry point in each zone: Agentic-Enabled (content and creative at commerce scale), Adjacent Agentic (agent-assisted decisioning), and Core Agentic (autonomous execution). Clients will enter where their maturity allows and move along the spectrum. Forcing all entry through Core Agentic narrows the pipeline to the smallest segment of the market.</p>
+  </div>
+
+  <div class="def-card">
+    <div class="def-card-eyebrow">Principle 2</div>
+    <div class="def-card-name">The Marketing and Social Commerce practices are the front door, not the adjacent business.</div>
+    <p style="font-size:14px; margin:8px 0 0;">Clients currently buying AI-driven content production at scale from Song are the highest-probability buyers of Adjacent and Core Agentic offerings. The GTM should explicitly position content-for-commerce engagements as the on-ramp to a broader agentic roadmap &mdash; not as a separate revenue line. Marketing and Social Commerce sellers need to be equipped with the agentic narrative, not handed over to a separate practice.</p>
+  </div>
+
+  <div class="def-card">
+    <div class="def-card-eyebrow">Principle 3</div>
+    <div class="def-card-name">The thought leadership narrative must be coherent across all three practice areas.</div>
+    <p style="font-size:14px; margin:8px 0 0;">A CDO reading our agentic commerce POV, our social commerce POV, and our marketing transformation POV should see a single story, not three. The flagship SEA Agentic Commerce Report needs to explicitly position Marketing + Social Commerce + Agentic Commerce as the integrated capability stack, with each offering feeding the others. This is our differentiation. We should say it loudly.</p>
+  </div>
+
+  <h2>Implications for beachhead accounts</h2>
+
+  <p>Each beachhead account carries a different entry point on the spectrum, and the GTM should lead with the zone closest to where the client is already engaged with Song:</p>
+
+  <ul>
+    <li><strong>FairPrice Group</strong> &mdash; Lead with Core Agentic (replenishment) but anchor on Agentic-Enabled (content and merchandising at SKU scale) if that is where the existing relationship sits. Expand into Adjacent Agentic (promotions optimisation) as confidence builds.</li>
+    <li><strong>Ascott</strong> &mdash; Lead with Adjacent Agentic (personalised booking and dynamic upsell), which has the fastest path to measurable revenue uplift. Use Agentic-Enabled (localised creative for booking flows) as the warm-up, and move to Core Agentic (full booking automation) once baselines are established.</li>
+    <li><strong>Mastercard</strong> &mdash; Lead with Core Agentic (payment orchestration) because the value case is sharpest there, but position the Agentic-Enabled work (content for merchant acquisition, B2B marketing) as the multi-year revenue anchor that compounds across the network.</li>
+  </ul>
+</section>
+
+<!-- ============ 07. NEXT STEPS ============ -->
+<section class="section">
+  <span class="section-num">07 &middot; Next Steps</span>
+  <h1 class="section-title">Alignment on thesis, then alignment on money.</h1>
+
+  <p>This POV is the foundation for the GTM deck that follows. Before the GTM is finalised, we need explicit alignment on three questions:</p>
+
+  <ol style="padding-left:0; list-style:none; counter-reset: steps;">
+    <li style="padding-left:40px; position:relative; margin-bottom:20px; counter-increment:steps;">
+      <span style="position:absolute; left:0; top:0; font-family:var(--sans); font-size:28px; font-weight:700; color:var(--purple); line-height:1;">1.</span>
+      <strong>Are we comfortable with the spectrum definition?</strong> If yes, the practice revenue base is already in the hundreds of millions regionally. If no, we build a narrower, purer practice with a smaller near-term ceiling and a longer path to scale.
+    </li>
+    <li style="padding-left:40px; position:relative; margin-bottom:20px; counter-increment:steps;">
+      <span style="position:absolute; left:0; top:0; font-family:var(--sans); font-size:28px; font-weight:700; color:var(--purple); line-height:1;">2.</span>
+      <strong>How explicitly do we integrate with Marketing and Social Commerce GTM?</strong> A shared pipeline view, shared account planning, and shared thought leadership calendar all follow from the answer. The less integrated, the more we cannibalise ourselves.
+    </li>
+    <li style="padding-left:40px; position:relative; margin-bottom:0; counter-increment:steps;">
+      <span style="position:absolute; left:0; top:0; font-family:var(--sans); font-size:28px; font-weight:700; color:var(--purple); line-height:1;">3.</span>
+      <strong>Which beachhead lands first?</strong> All three are winnable. Sequencing matters because the first live reference shapes the narrative we can credibly tell the next ten accounts. A Core Agentic win tells a different story than an Agentic-Enabled win. Both are valuable; we need to be deliberate about which we want to lead with.
+    </li>
+  </ol>
+</section>
+
+<!-- ============ FOOTNOTES ============ -->
+<section class="footnotes">
+  <h2>Sources &amp; Citations</h2>
+  <ol>
+    <li>
+      Google, Temasek &amp; Bain &amp; Company. <em>e-Conomy SEA 2025: From Digital Decade to AI Reality &mdash; Accelerating the Future in ASEAN.</em> 11 November 2025. 10th edition, covering 10 SEA markets. GMV forecast of USD 305bn (2025), revenue USD 135bn, 15% YoY growth, 68% of consumers influenced by AI recommendations. <a href="https://www.bain.com/insights/e-conomy-sea-2025/" target="_blank">bain.com/insights/e-conomy-sea-2025/</a> · <a href="https://www.temasek.com.sg/en/news-and-resources/news-room/news/2025/e-conomy-sea-2025-report-aseans-digital-economy-poised-to-surpass-300-billion" target="_blank">temasek.com.sg</a>
+    </li>
+    <li>
+      Momentum Works. <em>E-commerce in Southeast Asia 2026 Report.</em> 2026. SEA platform e-commerce GMV reached USD 157.6bn in 2025 (+23% YoY); Shopee, Lazada, and TikTok Shop held combined 98.8&ndash;99% platform market share. <a href="https://vir.com.vn/southeast-asian-e-commerce-market-hit-157-billion-in-2025-150579.html" target="_blank">vir.com.vn (Momentum Works summary)</a>
+    </li>
+    <li>
+      Gartner. <em>Gartner Predicts 60% of Brands Will Use Agentic AI to Deliver Streamlined One-to-One Interactions by 2028.</em> Press release, 15 January 2026. <a href="https://www.gartner.com/en/newsroom/press-releases/2026-01-15-gartner-predicts-60-percent-of-brands-will-use-agentic-ai-to-deliver-streamlined-one-to-one-interactions-by-2028" target="_blank">gartner.com</a>
+    </li>
+    <li>
+      Gartner. <em>Gartner Predicts 40% of Enterprise Apps Will Feature Task-Specific AI Agents by 2026, Up from Less Than 5% in 2025.</em> Press release, 26 August 2025. Also source for the projection that agentic AI could drive ~30% of enterprise application software revenue (USD 450bn+) by 2035. <a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025" target="_blank">gartner.com</a>
+    </li>
+    <li>
+      Momentum Works. <em>E-commerce in Southeast Asia 3.0.</em> June 2025. Platform e-commerce GMV USD 128.4bn in 2024, Shopee 52%, TikTok Shop (inc. Tokopedia) ~28%, Lazada ~15%. Video and live commerce generated USD 49.7bn (32% of platform GMV). <a href="https://technode.global/2025/06/25/southeast-asias-platform-e-commerce-gmv-reaches-128-4b-top-3-platforms-increase-market-share-to-84-percent/" target="_blank">technode.global summary</a>
+    </li>
+    <li>
+      Momentum Works, <em>E-commerce in Southeast Asia 3.0</em>, June 2025 &mdash; specifically the finding that brands contribute &lt;30% of SEA&rsquo;s platform e-commerce GMV (compared to &gt;50% in China).
+    </li>
+    <li>
+      McKinsey Global Institute. <em>The Economic Potential of Generative AI: The Next Productivity Frontier.</em> 14 June 2023. Generative AI could add USD 2.6&ndash;4.4 trillion annually across 63 analysed use cases, with ~75% of value in customer operations, marketing and sales, software engineering, and R&amp;D. <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier" target="_blank">mckinsey.com</a>
+    </li>
+    <li>
+      McKinsey &amp; Company. <em>The Power of Generative AI for Marketing.</em> 2023. Marketing productivity gains of 5&ndash;15% of total marketing spend, ~USD 463bn annually. <a href="https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/how-generative-ai-can-boost-consumer-marketing" target="_blank">mckinsey.com</a>
+    </li>
+    <li>
+      Gartner, announced at Gartner IT Symposium/Xpo 2025. Projection: AI agents will command USD 15 trillion in B2B purchases by 2028. Reported via Digital Commerce 360, November 2025. <a href="https://www.digitalcommerce360.com/2025/11/28/gartner-ai-agents-15-trillion-in-b2b-purchases-by-2028/" target="_blank">digitalcommerce360.com</a>
+    </li>
+    <li>
+      Gartner. <em>Top Strategic Predictions for IT Organizations and Users in 2026 and Beyond.</em> 21 October 2025. Introduces &ldquo;machine customers&rdquo; with economic agency as drivers of programmable financial infrastructure. <a href="https://www.gartner.com/en/newsroom/press-releases/2025-10-21-gartner-unveils-top-predictions-for-it-organizations-and-users-in-2026-and-beyond" target="_blank">gartner.com</a>
+    </li>
+  </ol>
+</section>
+
+<div class="page-footer">
+  <div>Accenture Song SEA &middot; Agentic Commerce POV &middot; April 2026</div>
+  <div>Confidential</div>
+</div>
+
+</div>
+
+</body>
+</html>
